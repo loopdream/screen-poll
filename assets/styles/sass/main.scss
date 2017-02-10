@@ -1,0 +1,9 @@
+@import 'variables';
+@import 'mixins/breakpoints';
+
+
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  background-color: white;
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Some interesting poll",
+    "description": "Blah",
+    "id": "some-interesting-poll",
+    "options": [
+      {
+        "title": "Option 1",
+        "description": "Blah blah"
+      },
+      {
+        "title": "Option 1",
+        "description": "Blah blah"
+      },
+      {
+        "title": "Option 1",
+        "description": "Blah blah"
+      }
+    ]
+  },
+  {
+    "name": "Another poll...",
+    "description": "Blah",
+    "id": "another-poll",
+    "options": [
+      {
+        "title": "Option 1",
+        "description": "Blah blah"
+      },
+      {
+        "title": "Option 1",
+        "description": "Blah blah"
+      },
+      {
+        "title": "Option 1",
+        "description": "Blah blah"
+      }
+    ]
+  }
+]

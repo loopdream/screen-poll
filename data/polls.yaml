@@ -1,0 +1,21 @@
+- Poll Name:
+  slug: unique-name 
+  description: Blah 
+  options: 
+    - title: Option 1
+      description: Blah blah 
+    - title: Option 1
+      description: Blah blah
+    - title: Option 1
+      description: Blah blah
+- Poll Name 2:
+    slug: unique-name 
+    description: Blah 
+    options: 
+      - title: Option 1
+        description: Blah blah 
+      - title: Option 1
+        description: Blah blah
+      - title: Option 1
+        description: Blah blah
+  
