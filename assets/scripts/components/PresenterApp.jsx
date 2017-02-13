@@ -1,6 +1,7 @@
 import React from 'react';
+import ContectedUsers from './ContectedUsers.jsx';
 
-export default class Presenter extends React.Component {
+export default class PresenterApp extends React.Component {
 
   constructor(props) {
     super(props);
@@ -10,6 +11,7 @@ export default class Presenter extends React.Component {
     return (
       <div>
 				<h1>I am the presenter</h1>
+        <ContectedUsers />
       </div>
     );
   }

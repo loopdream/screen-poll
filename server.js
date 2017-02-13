@@ -21,25 +21,15 @@ const io = require('socket.io')(server.listener);
 
 io.on('connection', function (socket) {
 
-    console.log('count', io.engine.clientsCount);
+  console.log('user:join',io.engine.clientsCount);
+  io.emit('user:join', io.engine.clientsCount);
 
-    io.emit('connectedUsers', io.engine.clientsCount);
-
-    console.log('a user connected');
-
-    socket.on('chat message', function(msg)
-     {
-      io.emit('chat message', msg);
-      console.log('message added: ' + msg);
-    });
-
-    socket.on('disconnect', function(){
-        console.log('user disconnected');
-        io.emit('connectedUsers', io.engine.clientsCount);
-    });
+  socket.on('disconnect', function(){
+      console.log('user:left',io.engine.clientsCount);
+      io.emit('user:left', io.engine.clientsCount);
+  });
 
 });
-
 
 
 // Register the inert and vision Hapi plugins
@@ -54,55 +44,55 @@ server.register([{
 
   if (err) return console.error(err);
 
-    // Add the React-rendering view engine
-    server.views({
-        engines: {
-            jsx: require('hapi-react-views')
-        },
-        relativeTo: __dirname,
-        path: 'views'
-    });
+  // Add the React-rendering view engine
+  server.views({
+      engines: {
+          jsx: require('hapi-react-views')
+      },
+      relativeTo: __dirname,
+      path: 'views'
+  });
 
-    // Add a route to serve static assets (CSS, JS, IMG)
-    server.route({
-      method: 'GET',
-      path: '/{param*}',
-      handler: {
-        directory: {
-          path: 'assets',
-          index: ['index.html']
-        }
+  // Add a route to serve static assets (CSS, JS, IMG)
+  server.route({
+    method: 'GET',
+    path: '/{param*}',
+    handler: {
+      directory: {
+        path: 'assets',
+        index: ['index.html']
       }
-    });
+    }
+  });
 
-    server.route({
-      method: 'GET',
-      path: '/poll/{id}',
-      handler: {
-        view: 'Default'
-      }
-    });
+  server.route({
+    method: 'GET',
+    path: '/poll/{id}',
+    handler: {
+      view: 'Default'
+    }
+  });
 
-    server.route({
-      method: 'GET',
-      path: '/poll/{id}/presenter',
-      handler: {
-        view: 'Default'
-      }
-    });
+  server.route({
+    method: 'GET',
+    path: '/poll/{id}/presenter',
+    handler: {
+      view: 'Default'
+    }
+  });
 
-    server.route({
-      method: 'GET',
-      path: '/',
-      handler: {
-        view: 'Default'
-      }
-    });
+  server.route({
+    method: 'GET',
+    path: '/',
+    handler: {
+      view: 'Default'
+    }
+  });
 
- 
-    server.start(function() {
-      console.log(dateFormat(new Date(), format) + ' - Server started at: ' + server.info.uri);
-    });
+
+  server.start(function() {
+    console.log(dateFormat(new Date(), format) + ' - Server started at: ' + server.info.uri);
+  });
 
 });
 
