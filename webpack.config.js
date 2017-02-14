@@ -28,6 +28,12 @@ module.exports = {
     new BrowserSyncPlugin({
       proxy: 'localhost:8000'
     })
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery"
+    })
   ]
+  
 };
 

@@ -20,8 +20,7 @@ var Default = React.createClass({
         <form action="">
           <input id="m" autocomplete="off" /><button>Send</button>
         </form>
-        
-        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+         
         <script src="/socket.io/socket.io.js"></script>
         <script src="/scripts/bundle.js"></script>
       

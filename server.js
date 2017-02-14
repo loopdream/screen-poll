@@ -21,12 +21,10 @@ const io = require('socket.io')(server.listener);
 
 io.on('connection', function (socket) {
 
-  console.log('user:join',io.engine.clientsCount);
-  io.emit('user:join', io.engine.clientsCount);
+  io.emit('user:count', io.engine.clientsCount);
 
   socket.on('disconnect', function(){
-      console.log('user:left',io.engine.clientsCount);
-      io.emit('user:left', io.engine.clientsCount);
+      io.emit('user:count', io.engine.clientsCount);
   });
 
 });

@@ -25027,25 +25027,15 @@
 	  _createClass(ContectedUsers, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this._userJoin();
-	      this._userLeft();
+	      this._userCount();
 	    }
 	  }, {
-	    key: '_userJoin',
-	    value: function _userJoin() {
+	    key: '_userCount',
+	    value: function _userCount() {
 	      var _this2 = this;
 
-	      this.socket.on('user:join', function (data) {
+	      this.socket.on('user:count', function (data) {
 	        _this2.setState({ userCount: data });
-	      });
-	    }
-	  }, {
-	    key: '_userLeft',
-	    value: function _userLeft() {
-	      var _this3 = this;
-
-	      this.socket.on('user:left', function (data) {
-	        _this3.setState({ userCount: data });
 	      });
 	    }
 	  }, {

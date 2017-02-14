@@ -1,7 +1,5 @@
 import React from 'react';
-
 import io from 'socket.io-client'
-
 
 export default class ContectedUsers extends React.Component {
 
@@ -14,18 +12,11 @@ export default class ContectedUsers extends React.Component {
   }
 
   componentDidMount() {
-    this._userJoin();
-    this._userLeft();
+    this._userCount();
   }
 
-  _userJoin() {
-    this.socket.on('user:join', data => {
-      this.setState({ userCount: data });
-    });
-  }
-
-  _userLeft() {
-    this.socket.on('user:left', data => {
+  _userCount() {
+    this.socket.on('user:count', data => {
       this.setState({ userCount: data });
     });
   }
